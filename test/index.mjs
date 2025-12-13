@@ -78,6 +78,22 @@ suite('Winkle', async () => {
     assert.strictEqual(bResult2, false)
   })
 
+  test('clear sleep', async () => {
+    const w = new Winkle(10)
+    let woken = false
+    w.sleep().then(() => (woken = true))
+
+    await new Winkle(1).sleep()
+
+    w.clear()
+
+    await new Winkle(20).sleep()
+
+    assert.strictEqual(woken, false)
+
+    w.clear()
+  })
+
   test('errors', async () => {
     const w = new Winkle()
     assert.throws(

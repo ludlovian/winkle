@@ -32,6 +32,12 @@ export default class Winkle {
     this.#wake(true)
   }
 
+  clear () {
+    if (!this.sleeping) return
+    clearTimeout(this.#tm)
+    this.#tm = this.#resolve = null
+  }
+
   #wake (woken) {
     if (!this.sleeping) return
     clearTimeout(this.#tm)

@@ -25,3 +25,7 @@ Is is currently sleeping.
 ### .woken => boolean
 
 Was it recently woken
+
+### .clear ()
+
+Stops the timer - will never awake!
